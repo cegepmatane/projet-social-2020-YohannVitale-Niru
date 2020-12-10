@@ -2,5 +2,5 @@
 projet-social-2020-YohannVitale created by GitHub Classroom
 <br>
 
-Chat laite priver et ecran option supprimer et modifier message, ON ai perdu merci
+un Tchat de conversion entre 2 personnes 
 <br>
