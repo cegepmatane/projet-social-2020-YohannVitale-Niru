@@ -32,6 +32,7 @@ public class MessageDAO
 		List<Message> message =  new ArrayList<Message>();			
 		
 		try {
+			System.out.println("Je suis dnas listerMessage Try");
 			String ID_PROJET = "projetsocial-10d1d";
 			Credentials credit = GoogleCredentials.fromStream(new FileInputStream("cle-projetsocial.json"));
 			Firestore nuage = FirestoreOptions.getDefaultInstance().toBuilder().setCredentials(credit).setProjectId(ID_PROJET).build().getService();
@@ -64,7 +65,7 @@ public class MessageDAO
 			e.printStackTrace();
 		}
 		
-		
+		System.out.println("Je suis dnas listerMessage avant return message");
 		return message;
 	}
 	

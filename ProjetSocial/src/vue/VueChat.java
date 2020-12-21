@@ -10,6 +10,7 @@ import Model.Message;
 import Model.Utilisateur;
 
 import controleur.ControleurConnection;
+import donnee.MessageDAO;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -28,10 +29,10 @@ public class VueChat extends Vue {
 		super("chat.fxml");
 		super.controleur = this.controleur = new ControleurConnection();
 		Logger.logMsg(Logger.INFO, "new VueChat()");
-		message = (new MessageDAO()).detaillerAnnee();
-		afficherPseudo();
-		afficherListeMessage();
-		activerControles();
+		//message = (new MessageDAO()).detaillerAnnee();
+		//afficherPseudo();
+		//afficherListeMessage();
+		//activerControles();
 	}
 		
 	public void activerControles()
@@ -40,9 +41,9 @@ public class VueChat extends Vue {
 	}
 	private void afficherPseudo()
 	{
-		Label labelPseudo = (Label) lookup("#vueChatPseudo");
+		/*Label labelPseudo = (Label) lookup("#vueChatPseudo");
 		
-		labelPseudo.setText(utilisateur.getNom());
+		labelPseudo.setText(utilisateur.getNom());*/
 		
 	}
 	
