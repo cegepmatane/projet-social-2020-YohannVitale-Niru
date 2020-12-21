@@ -18,23 +18,30 @@ public class Vue extends Scene{
 	
 	public Vue(String fxml)
 	{
-		super(parser(fxml, null),1294,743);
+		super(parser(fxml, null));
 		this.controleur = null;
+		System.out.println("Je suis dans vue ! Vue() ");
 	}
 	public Vue(String fxml, Controleur controleur)
 	{
 		super(parser(fxml, controleur),1294,743);
 		this.controleur = controleur;
+		System.out.println("Je suis dans vue controleur ! Vue(controleur) ");
 	}
 
 	public static Parent parser(String fxml, Controleur controleur)
 	{
 		parseur = new FXMLLoader();
+		System.out.println("Je suis dans le parser ! parser()");
 		parseur.setLocation(VueConnection.class.getResource(fxml));
 		if(null != controleur) parseur.setController(controleur);
 		try {
+			
+			System.out.println("Je suis dans le parser try ! parser()");
 			return parseur.load();
+			
 		} catch (IOException e) {
+			System.out.println("Je suis dans le parser catch ! parser()");
 			e.printStackTrace();
 		}
 		System.out.println("fin parser");
@@ -43,7 +50,7 @@ public class Vue extends Scene{
 
 	public void activerControles()
 	{	
-		Button actionNaviguerVueChat = (Button) lookup("#boutonConnection");
+		Button actionNaviguerVueChat = (Button) lookup("#boutonActionConnection");
 		actionNaviguerVueChat.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override public void handle(ActionEvent e) 

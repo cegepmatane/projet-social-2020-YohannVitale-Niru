@@ -47,35 +47,12 @@
    <left>
       <VBox maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="onlineUsersHbox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="217.0" stylesheets="@../../../../../../AppData/Local/Temp/styles/ListViewStyle.css">
-               <children>
-                  <Label prefHeight="50.0" prefWidth="214.0" text="Personnes en ligne:" textAlignment="CENTER" textFill="#fc6747">
-                     <font>
-                        <Font name="SansSerif Regular" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                     <opaqueInsets>
-                        <Insets bottom="10.0" />
-                     </opaqueInsets>
-                  </Label>
-                  <Label fx:id="onlineCountLabel" prefHeight="48.0" prefWidth="94.0" text="0" textFill="#fc6747">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <font>
-                        <Font name="SansSerif Regular" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
             <ListView fx:id="userList" focusTraversable="false" maxHeight="1.7976931348623157E308" prefHeight="495.0" prefWidth="217.0" style="-fx-border-image-width: 0;" stylesheets="@../../../../../../AppData/Local/Temp/styles/ListViewStyle.css" />
          </children>
       </VBox>
    </left>
    <top>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #031c30; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: blue; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
          <left>
             <HBox prefWidth="259.0" BorderPane.alignment="CENTER">
                <children>
