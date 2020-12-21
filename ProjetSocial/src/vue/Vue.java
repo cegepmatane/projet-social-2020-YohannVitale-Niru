@@ -50,7 +50,7 @@ public class Vue extends Scene{
 
 	public void activerControles()
 	{	
-		Button actionNaviguerVueChat = (Button) lookup("#boutonActionConnection");
+		/*Button actionNaviguerVueChat = (Button) lookup("#boutonActionConnection");
 		actionNaviguerVueChat.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override public void handle(ActionEvent e) 
@@ -58,7 +58,7 @@ public class Vue extends Scene{
 				Logger.logMsg(Logger.INFO, "Bouton Connection activé !");
 				controleur.actionNaviguerVueChat();
 	        }
-		});		
+		});	*/	
 	}
 	
 }

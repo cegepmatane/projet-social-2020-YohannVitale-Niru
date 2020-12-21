@@ -7,7 +7,7 @@ public class Fenetre extends Navigateur {
 	@Override
 	public void start(Stage stade) throws Exception {
 		
-		stade.setScene(VueConnection.getInstance());
+		stade.setScene(VueChat.getInstance());
 		stade.show();
 		this.stade = stade;
 	}

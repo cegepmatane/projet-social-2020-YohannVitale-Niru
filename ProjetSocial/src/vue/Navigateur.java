@@ -15,7 +15,7 @@ public abstract class Navigateur extends Application{
 	{
 		instance = this;
 		Logger.setLevel(Logger.INFO);
-		VueConnection.getInstance().activerControles();
+		VueChat.getInstance().activerControles();
 	}
 	
 	public void afficherVue(Vue vue)
