@@ -1,10 +1,12 @@
 package Model;
 
+import java.util.List;
+
 public class Message 
 {
 	protected int id;
-	protected int dequi;
-	protected int aqui;
+	protected double dequi;
+	protected double aqui;
 	protected String messageEnvoyer;
 	
 	public int getId() 
@@ -17,7 +19,7 @@ public class Message
 		this.id = id;
 	}
 	
-	public int getDequi() 
+	public double getDequi() 
 	{
 		return dequi;
 	}
@@ -27,7 +29,7 @@ public class Message
 		this.dequi = dequi;
 	}
 	
-	public int getAqui() 
+	public double getAqui() 
 	{
 		return aqui;
 	}
@@ -46,5 +48,11 @@ public class Message
 	{
 		this.messageEnvoyer = messageEnvoyer;
 	}
+
+	public void add(List<Message> message) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
