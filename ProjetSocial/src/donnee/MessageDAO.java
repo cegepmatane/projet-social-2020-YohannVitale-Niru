@@ -34,7 +34,7 @@ public class MessageDAO
 		try {
 			System.out.println("Je suis dnas listerMessage Try");
 			String ID_PROJET = "projetsocial-10d1d";
-			Credentials credit = GoogleCredentials.fromStream(new FileInputStream("cle-projetsocial.json"));
+			Credentials credit = GoogleCredentials.fromStream(new FileInputStream("clef-projetsocial.json"));
 			Firestore nuage = FirestoreOptions.getDefaultInstance().toBuilder().setCredentials(credit).setProjectId(ID_PROJET).build().getService();
 			
 		    ApiFuture<QuerySnapshot> demande = nuage.collection("message").get();
@@ -44,8 +44,8 @@ public class MessageDAO
 		    {
 		    	String id = messageNuage.getId();
 		    	System.out.println(id);
-		    	double aqui = messageNuage.getDouble("aqui");
-		    	double dequi = messageNuage.getDouble("dequi");
+		    	long aqui = messageNuage.getLong("aqui").longValue();
+		    	long dequi = messageNuage.getLong("dequi").longValue();
 		    	String messageEnvoyer = messageNuage.getString("messageEnvoyer");
 		    	
 		    	
@@ -74,20 +74,22 @@ public class MessageDAO
 		System.out.println("Je suis dnas ajouterMessage");
 		try {
 			String ID_PROJET = "projetsocial-10d1d";
-			Credentials credit = GoogleCredentials.fromStream(new FileInputStream("cle-projetsocial.json"));
+			Credentials credit = GoogleCredentials.fromStream(new FileInputStream("clef-projetsocial.json"));
 			Firestore nuage = FirestoreOptions.getDefaultInstance().toBuilder().setCredentials(credit).setProjectId(ID_PROJET).build().getService();
 			
 			DocumentReference nouveau = nuage.collection("message").document();
 			Map<String, Object> objet = new HashMap<>();
 			objet.put("dequi", message.getDequi());
-			objet.put("aqui", message.getDequi());
+			objet.put("aqui", message.getAqui());
 			objet.put("messageEnvoyer", message.getMessageEnvoyer());
 			ApiFuture<WriteResult> resultat = nouveau.set(objet);
 			System.out.println("Update time : " + resultat.get().getUpdateTime());
+			
 			
 			nuage.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 }

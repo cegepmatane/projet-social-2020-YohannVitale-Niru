@@ -12,6 +12,7 @@ public class Controleur {
 	{
 		MessageDAO dao = new MessageDAO();
 		dao.listerMessage();
+		//teste
 		
 		//Navigateur.getInstance().afficherVue(VueChat.getInstance());
 	}
