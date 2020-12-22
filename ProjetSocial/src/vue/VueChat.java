@@ -3,6 +3,7 @@ package vue;
 
 import java.text.DateFormatSymbols;
 import java.util.HashMap;
+import java.util.List;
 
 import com.sun.media.jfxmedia.logging.Logger;
 
@@ -49,6 +50,39 @@ public class VueChat extends Vue {
 	
 	private void afficherListeMessage()
 	{
+		
+		 
+	        List<HashMap<String, String>> listePassagerAfficher = new ArrayList<HashMap<String, String>>();
+	        System.out.println("liste passager : " + listePassager);
+
+
+	        for (Passager passager:listePassager){
+	           
+	            listePassagerAfficher.add(passager.convertirMessagePourAdapteur(message));
+	            System.out.println("liste passager afficher : " + listePassagerAfficher);
+	        }
+
+	        System.out.println("TOTO DIT : " + nombre);
+	    
+
+	        SimpleAdapter adapteur = new SimpleAdapter(
+	                this,
+	                listePassagerAfficher,
+	                android.R.layout.two_line_list_item,
+	                new String[] {"nom", "prenom"},
+	                new int[] {android.R.id.text1, android.R.id.text2}) {
+	            public View getView(int position, View convertView, ViewGroup parent) {
+	                View view = super.getView(position, convertView, parent);
+	                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+	                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+	                text1.setTextColor(Color.WHITE);
+	                text2.setTextColor(Color.WHITE);
+	                return view;
+	            };
+	        };
+
+	        VueListePassagerListe.setAdapter(adapteur);
+	    }
 		
 	}
 

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Message 
@@ -53,6 +55,20 @@ public class Message
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	 protected List< HashMap<String, String> > listeMassage = new ArrayList< HashMap<String,String> >();
+
+	    public HashMap<String, String> convertirMessagePourAdapteur(Message message){
+
+	        HashMap<String, String> messagePourAfficher = new HashMap<String, String>();
+	        messagePourAfficher.put("id", "" + this.id);
+	        messagePourAfficher.put("nom", this.messageEnvoyer );
+	       //passagerPourAfficher.put("age", this.age );
+
+	        return messagePourAfficher;
+	    }
+	
 
 
 }
