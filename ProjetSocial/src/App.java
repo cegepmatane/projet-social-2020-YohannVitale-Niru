@@ -11,7 +11,7 @@ public class App {
 		Message message = new Message();
 		message.setAqui(2);
 		message.setDequi(1);
-		message.setMessageEnvoyer("Allo, comment ca va ? ");
+		message.setMessageEnvoyer("Catwoman");
 		dao.envoyerMessage(message);*/
 		Fenetre.launch(Fenetre.class, parametres);
 	}
