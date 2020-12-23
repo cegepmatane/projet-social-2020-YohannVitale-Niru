@@ -65,18 +65,5 @@ public void ajouterMois(String messageEnvoyers)
 	{
 		this.messageEnvoyer = messageEnvoyer;
 	}
-
-	public void add(List<Message> message) {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	public List<HashMap<String, String>> getListeMessage() 
-	{
-		return this.listeMessage;
-	}
-	
-	
-
-
 }

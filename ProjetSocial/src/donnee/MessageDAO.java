@@ -54,8 +54,9 @@ public class MessageDAO
 		    	messages.setDequi(0);
 		    	messages.setMessageEnvoyer(messageEnvoyer);
 		    	
-		    	
-		    	messages.add(message);
+		    	//Message messagees = new Message(aqui, dequi, messageEnvoyer)
+		    	message.add(messages);
+		    	System.out.println("returnMessage : " + message.size());
 		    			    	
 		    }
 			
