@@ -11,6 +11,21 @@ public class Message
 	protected double aqui;
 	protected String messageEnvoyer;
 	
+protected List< HashMap<String, String>> listeMessage = new ArrayList< HashMap<String,String> >();
+
+public void ajouterMois(String messageEnvoyers) 
+{
+	HashMap<String, String> messagess = new HashMap<String, String>();
+	//messageEnvoyer.put(messageEnvoyer);
+	
+	this.listeMessage.add(messagess);
+}
+	
+	public Message() 
+	{		
+		super();
+	}
+	
 	public int getId() 
 	{
 		return id;
@@ -54,6 +69,11 @@ public class Message
 	public void add(List<Message> message) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public List<HashMap<String, String>> getListeMessage() 
+	{
+		return this.listeMessage;
 	}
 	
 	

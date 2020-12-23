@@ -38,10 +38,9 @@ public class VueChat extends Vue {
 		super("chat.fxml");
 		super.controleur = this.controleur = new ControleurConnection();
 		Logger.logMsg(Logger.INFO, "new VueChat()");
-		this.messageSelonId = new HashMap<String, Integer>();
 		//message = (new MessageDAO()).listerMessage();
 		//afficherPseudo();
-		//afficherListeMessage();
+		afficherListeMessage();
 		//activerControles();
 	}
 		
@@ -76,18 +75,19 @@ public class VueChat extends Vue {
 		}
 	}*/
 	
-	public void afficherListeMessage(List<Message> messages)
+	public void afficherListeMessage()
     {
 		System.out.println("Je suis dnas afficherListeMessage");
+		//List<Message> messages = new ArrayList<Message>();
         ObservableList<String> itemMessage = FXCollections.observableArrayList ();
       
         ListView listesMessage = (ListView) this.lookup("#listeMessage");
         
-        for(Message message : messages)
+        //for(Message message : messages)
+        for(HashMap<String, String> messages : message.getListeMessage())
         {
         	System.out.print("Je suis dnas afficherListeMessage la boucle for");
         	itemMessage.add(message.getMessageEnvoyer());
-            this.messageSelonId.put(message.getMessageEnvoyer(), message.getId());
             System.out.println("itemMessage");
            
         }

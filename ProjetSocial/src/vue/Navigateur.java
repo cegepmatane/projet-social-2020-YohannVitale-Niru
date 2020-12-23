@@ -29,24 +29,24 @@ public abstract class Navigateur extends Application{
 		stade.show();				
 	}
 	
-	public void start(Stage stade) throws Exception 
+	/*public void start(Stage stade) throws Exception 
 	{
 		this.stade = stade;
 		this.stade.setTitle("Chat");
 		this.stade.setScene(this.vueChat); //TODO FAIT : dire quelle vue afficher en premier
 		//this.pageListeExoplanete.afficherListeExoplanetes("terre + mars");
-		/*ExoPlaneteDAO exoplaneteDAO = new ExoPlaneteDAO();
-		this.pageListeExoplanete.afficherListeExoplanetes(exoplaneteDAO.listerExoPlanete());*/ //TODO : dans controleur
+		//ExoPlaneteDAO exoplaneteDAO = new ExoPlaneteDAO();
+		this.pageListeExoplanete.afficherListeExoplanetes(exoplaneteDAO.listerExoPlanete()); //TODO : dans controleur
 		//TODO : activer dans le controleur la premiere vue
 		this.stade.show();
 		
 		this.controleur.initialiser();
 		//this.naviguerVersPageExoplanete();
 		//this.naviguerVersPageListeExoplanete();
-	}
+	}*/
 	
-	public VueChat getVueChatListeMessage() 
+	/*public VueChat getVueChatListeMessage() 
 	{
 		return vueChat;
-	}
+	}*/
 }

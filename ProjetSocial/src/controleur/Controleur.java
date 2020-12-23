@@ -24,10 +24,10 @@ public class Controleur {
 		//Navigateur.getInstance().afficherVue(VueChat.getInstance());
 	}
 	
-	public void initialiser()
+	/*public void initialiser()
 	{
 		this.listeMessage = messageDAO.listerMessage();
 		this.navigateur.getVueChatListeMessage().afficherListeMessage(listeMessage);
-	}
+	}*/
 
 }
