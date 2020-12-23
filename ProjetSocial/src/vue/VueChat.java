@@ -2,8 +2,10 @@ package vue;
 
 
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.sun.media.jfxmedia.logging.Logger;
 
@@ -12,7 +14,11 @@ import Model.Utilisateur;
 
 import controleur.ControleurConnection;
 import donnee.MessageDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -22,7 +28,9 @@ public class VueChat extends Vue {
 	protected ControleurConnection controleur;
 	protected static VueChat instance = null;
 	protected Message message; 
+	protected MessageDAO messageDAO;
 	protected Utilisateur utilisateur; 
+	protected  Map<String, Integer> messageSelonId;
 	public static VueChat getInstance() {if(null==instance)instance = new VueChat();return VueChat.instance;}; 
 	
 	public VueChat()
@@ -30,7 +38,8 @@ public class VueChat extends Vue {
 		super("chat.fxml");
 		super.controleur = this.controleur = new ControleurConnection();
 		Logger.logMsg(Logger.INFO, "new VueChat()");
-		//message = (new MessageDAO()).detaillerAnnee();
+		this.messageSelonId = new HashMap<String, Integer>();
+		//message = (new MessageDAO()).listerMessage();
 		//afficherPseudo();
 		//afficherListeMessage();
 		//activerControles();
@@ -48,42 +57,44 @@ public class VueChat extends Vue {
 		
 	}
 	
-	private void afficherListeMessage()
+	/*private void afficherListeMessage(List<Message> messages)
 	{
 		
-		 
-	        List<HashMap<String, String>> listePassagerAfficher = new ArrayList<HashMap<String, String>>();
-	        System.out.println("liste passager : " + listePassager);
-
-
-	        for (Passager passager:listePassager){
-	           
-	            listePassagerAfficher.add(passager.convertirMessagePourAdapteur(message));
-	            System.out.println("liste passager afficher : " + listePassagerAfficher);
-	        }
-
-	        System.out.println("TOTO DIT : " + nombre);
-	    
-
-	        SimpleAdapter adapteur = new SimpleAdapter(
-	                this,
-	                listePassagerAfficher,
-	                android.R.layout.two_line_list_item,
-	                new String[] {"nom", "prenom"},
-	                new int[] {android.R.id.text1, android.R.id.text2}) {
-	            public View getView(int position, View convertView, ViewGroup parent) {
-	                View view = super.getView(position, convertView, parent);
-	                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-	                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-	                text1.setTextColor(Color.WHITE);
-	                text2.setTextColor(Color.WHITE);
-	                return view;
-	            };
-	        };
-
-	        VueListePassagerListe.setAdapter(adapteur);
-	    }
+		VBox boxListeMessage = (VBox)lookup("#liste-message");
 		
-	}
+		
+		//ListView listeMessage = (ListView) boxListeMessage.getListView().get();
+		ListView listeMessage = (ListView) boxListeMessage.getContentBias();
+		listeMessage.set(new PropertyValueFactory<>("id"));
+		
+		
+		// Ajout des données
+		for(Message message : messages)
+		{
+			System.out.println(message.getMessageEnvoyer());
+			message.getMessageEnvoyer().add(message);
+		}
+	}*/
+	
+	public void afficherListeMessage(List<Message> messages)
+    {
+		System.out.println("Je suis dnas afficherListeMessage");
+        ObservableList<String> itemMessage = FXCollections.observableArrayList ();
+      
+        ListView listesMessage = (ListView) this.lookup("#listeMessage");
+        
+        for(Message message : messages)
+        {
+        	System.out.print("Je suis dnas afficherListeMessage la boucle for");
+        	itemMessage.add(message.getMessageEnvoyer());
+            this.messageSelonId.put(message.getMessageEnvoyer(), message.getId());
+            System.out.println("itemMessage");
+           
+        }
+        System.out.println("ITEMMESSAGE" + itemMessage);
+        listesMessage.setItems(itemMessage);
+        
+       
+    }
 
 }

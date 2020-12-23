@@ -57,18 +57,6 @@ public class Message
 	}
 	
 	
-	 protected List< HashMap<String, String> > listeMassage = new ArrayList< HashMap<String,String> >();
-
-	    public HashMap<String, String> convertirMessagePourAdapteur(Message message){
-
-	        HashMap<String, String> messagePourAfficher = new HashMap<String, String>();
-	        messagePourAfficher.put("id", "" + this.id);
-	        messagePourAfficher.put("nom", this.messageEnvoyer );
-	       //passagerPourAfficher.put("age", this.age );
-
-	        return messagePourAfficher;
-	    }
-	
 
 
 }

@@ -1,65 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="642.0" maxWidth="1087.0" prefHeight="642.0" prefWidth="1087.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.chatwindow.ChatController">
-   <center>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="13.0" layoutY="4.0" prefHeight="51.0" prefWidth="578.0" style="-fx-background-color: blue; -fx-background-radius: 15;">
          <children>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="496.0" vbarPolicy="ALWAYS" vmin="1.0" vvalue="1.0" VBox.vgrow="ALWAYS">
-               <content>
-                  <ListView id="listeMassage" fx:id="chatPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="394.0" prefWidth="808.0" />
-               </content>
-            </ScrollPane>
-            <HBox id="boiteMessage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="100.0" VBox.vgrow="NEVER">
+            <Label prefHeight="47.0" prefWidth="109.0" text="Pseudo" />
+         </children>
+      </VBox>
+      <VBox id="liste-message" layoutX="5.0" layoutY="55.0" prefHeight="341.0" prefWidth="591.0">
+         <children>
+            <ListView prefHeight="390.0" prefWidth="591.0" style="-fx-background-radius: 15;" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextArea fx:id="messageBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="100.0" nodeOrientation="LEFT_TO_RIGHT" onKeyPressed="#sendMethod" prefHeight="16.0" prefWidth="698.0" promptText="Enter Message..." scaleShape="false" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="SansSerif Regular" size="14.0" />
-                     </font>
-                  </TextArea>
-                  <Button fx:id="buttonSend" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendButtonAction" prefHeight="43.0" prefWidth="140.0" scaleShape="false" text="Envoyer" textAlignment="CENTER" HBox.hgrow="NEVER" />
+                  <TextArea prefHeight="33.0" prefWidth="523.0" style="-fx-background-radius: 15;" text="Ecrire votre message" />
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20;" text="Envoyer" />
                </children>
             </HBox>
          </children>
       </VBox>
-   </center>
-   <left>
-      <VBox maxHeight="1.7976931348623157E308" prefHeight="553.0" prefWidth="232.0" BorderPane.alignment="CENTER">
-         <children>
-            <ListView fx:id="userList" focusTraversable="false" maxHeight="1.7976931348623157E308" prefHeight="495.0" prefWidth="217.0" style="-fx-border-image-width: 0;" stylesheets="@../../../../../../AppData/Local/Temp/styles/ListViewStyle.css" />
-         </children>
-      </VBox>
-   </left>
-   <top>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: blue; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-         <left>
-            <HBox prefWidth="259.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox>
-                     <HBox.margin>
-                        <Insets left="10.0" top="30.0" />
-                     </HBox.margin>
-                     <children>
-                        <Label fx:id="usernameLabel" prefHeight="33.0" prefWidth="87.0" text="Pseudo" textFill="#fa6648">
-                           <font>
-                              <Font name="HelveticaNeue Medium" size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </left>
-      </BorderPane>
-   </top>
-</BorderPane>
+   </children>
+</Pane>
