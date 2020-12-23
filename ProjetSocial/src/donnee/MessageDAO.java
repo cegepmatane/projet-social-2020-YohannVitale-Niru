@@ -66,7 +66,9 @@ public class MessageDAO
 		}
 		
 		System.out.println("Je suis dnas listerMessage avant return message");
+		System.out.println("returnMessage" + message.size());
 		return message;
+		
 	}
 	
 	public void envoyerMessage(Message message)
