@@ -44,7 +44,6 @@ public class MessageDAO
 		    {
 		    	String id = messageNuage.getId();
 		    	System.out.println(id);
-		    	long aqui = messageNuage.getLong("aqui").longValue();
 		    	long dequi = messageNuage.getLong("dequi").longValue();
 		    	String messageEnvoyer = messageNuage.getString("messageEnvoyer");
 		    	

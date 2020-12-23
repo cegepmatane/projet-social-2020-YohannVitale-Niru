@@ -33,7 +33,7 @@ public class VueChat extends Vue {
 	
 	protected ControleurConnection controleur;
 	protected static VueChat instance;
-	protected List <Message> message; 
+	protected List <Message> listeMessage; 
 	protected MessageDAO messageDAO;
 	protected Utilisateur utilisateur; 
 	protected  Map<String, Integer> messageSelonId;
@@ -50,8 +50,8 @@ public class VueChat extends Vue {
 		//message = (new MessageDAO()).listerMessage();
 		//afficherPseudo();
 		this.messageDAO = new MessageDAO();
-		this.message = messageDAO.listerMessage(); 
-		afficherListeMessage();
+		this.listeMessage = messageDAO.listerMessage(); 
+		afficherListeMessage(this.listeMessage);
 		//lireMessage();
 		activerControles();
 	}
@@ -69,9 +69,7 @@ public class VueChat extends Vue {
 					{
 						Logger.logMsg(Logger.INFO, "clic sur envoyer Message");
 						controleur.notifierClicEnvoyerMessage();
-						lireMessage();
-						new VueChat();
-						afficherListeMessage();
+						
 						
 					}
 				});
@@ -85,7 +83,6 @@ public class VueChat extends Vue {
 		messageEnvoyer.setAqui(2);
 		messageEnvoyer.setDequi(1);
 		messageEnvoyer.setMessageEnvoyer(champMessage.getText());
-		messageDAO.envoyerMessage(messageEnvoyer);
 		return messageEnvoyer;
 	}
 	
@@ -117,17 +114,17 @@ public class VueChat extends Vue {
 		}
 	}*/
 	
-	public void afficherListeMessage()
+	public void afficherListeMessage(List<Message> listeMessage)
     {
 		System.out.println("Je suis dnas afficherListeMessage");
 		//List<Message> messages = new ArrayList<Message>();
         ObservableList<String> itemMessage = FXCollections.observableArrayList ();
       
         ListView listesMessage = (ListView) this.lookup("#listeMessage");
-        System.out.println("Taille listemessage" + this.message.size());
+        System.out.println("Taille listemessage" + listeMessage.size());
         
         //for(Message message : messages)
-        for(Message message : this.message)
+        for(Message message : listeMessage)
         {
         	System.out.print("Je suis dnas afficherListeMessage la boucle for");
         	itemMessage.add(message.getMessageEnvoyer());
@@ -136,8 +133,10 @@ public class VueChat extends Vue {
         }
         System.out.println("ITEMMESSAGE" + itemMessage);
         listesMessage.setItems(itemMessage);
-       
+        
     }
+	
+	
 	
 	
 
