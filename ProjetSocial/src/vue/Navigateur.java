@@ -21,6 +21,7 @@ public abstract class Navigateur extends Application{
 		this.vueChat = new VueChat();
 		this.controleur = new ControleurConnection();
 		VueChat.getInstance().activerControles();
+		VueChat.getInstance().controleur = VueChat.getInstance().controleur;
 	}
 	
 	public void afficherVue(Vue vue)
@@ -28,6 +29,8 @@ public abstract class Navigateur extends Application{
 		stade.setScene(vue);
 		stade.show();				
 	}
+	
+	
 	
 	/*public void start(Stage stade) throws Exception 
 	{

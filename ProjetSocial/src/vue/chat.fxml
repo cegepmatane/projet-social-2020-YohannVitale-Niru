@@ -20,8 +20,8 @@
             <ListView id="listeMessage" fx:id="listeMessage" prefHeight="390.0" prefWidth="591.0" style="-fx-background-radius: 15;" />
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextArea prefHeight="33.0" prefWidth="523.0" style="-fx-background-radius: 15;" text="Ecrire votre message" />
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20;" text="Envoyer" />
+                  <TextArea id="champMessage" fx:id="champMessage" prefHeight="33.0" prefWidth="523.0" style="-fx-background-radius: 15;" />
+                  <Button fx:id="actionEnvoyer" mnemonicParsing="false" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20;" text="Envoyer" />
                </children>
             </HBox>
          </children>

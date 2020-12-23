@@ -16,21 +16,28 @@ import controleur.ControleurConnection;
 import donnee.MessageDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 
+
 public class VueChat extends Vue {
 	
 	protected ControleurConnection controleur;
-	protected static VueChat instance = null;
+	protected static VueChat instance;
 	protected List <Message> message; 
 	protected MessageDAO messageDAO;
 	protected Utilisateur utilisateur; 
 	protected  Map<String, Integer> messageSelonId;
+	protected Message messageEnvoyer = new Message();
 	
 	
 	public static VueChat getInstance() {if(null==instance)instance = new VueChat();return VueChat.instance;}; 
@@ -45,14 +52,44 @@ public class VueChat extends Vue {
 		this.messageDAO = new MessageDAO();
 		this.message = messageDAO.listerMessage(); 
 		afficherListeMessage();
-		
-		//activerControles();
+		//lireMessage();
+		activerControles();
 	}
 		
 	public void activerControles()
 	{
 		super.activerControles();
+		
+
+		Button actionEnvoyer = (Button) lookup("#actionEnvoyer");
+
+		actionEnvoyer.setOnAction(new EventHandler<ActionEvent>()
+				{
+					public void handle(ActionEvent arg0)
+					{
+						Logger.logMsg(Logger.INFO, "clic sur envoyer Message");
+						controleur.notifierClicEnvoyerMessage();
+						lireMessage();
+						new VueChat();
+						afficherListeMessage();
+						
+					}
+				});
+
 	}
+	
+	public Message lireMessage()
+	{
+		TextArea champMessage = (TextArea)lookup("#champMessage");
+		//messageEnvoyer.setMessageEnvoyer(champMessage.getText());
+		messageEnvoyer.setAqui(2);
+		messageEnvoyer.setDequi(1);
+		messageEnvoyer.setMessageEnvoyer(champMessage.getText());
+		messageDAO.envoyerMessage(messageEnvoyer);
+		return messageEnvoyer;
+	}
+	
+	
 	private void afficherPseudo()
 	{
 		/*Label labelPseudo = (Label) lookup("#vueChatPseudo");
@@ -99,8 +136,9 @@ public class VueChat extends Vue {
         }
         System.out.println("ITEMMESSAGE" + itemMessage);
         listesMessage.setItems(itemMessage);
-        
        
     }
+	
+	
 
 }
